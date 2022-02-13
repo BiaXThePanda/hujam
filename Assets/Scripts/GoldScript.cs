@@ -9,15 +9,28 @@ public class GoldScript : MonoBehaviour
     public float speed;
     public float range;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            collision.GetComponent<Player>().gold += amount;
+            collision.gameObject.GetComponent<Player>().IncreaseGold(amount);
             Destroy(gameObject);
 
         }
     }
+
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.GetComponent<Player>().IncreaseGold(amount);
+            Destroy(gameObject);
+
+        }
+    }
+    */
     private void Update()
     {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().canMagnetGolds)

@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public bool isDead;
     public float dieAfterSeconds;
     public GameObject target;
-
+    public GameObject gold;
     public Animator animator;
 
     Vector2 velocity = Vector2.zero;
@@ -53,6 +53,12 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Die");
         GetComponent<Collider2D>().enabled = false;
         Debug.LogError("died");
+        int goldAmount = (int)Random.Range(1, 6);
+        for (int i = 0; i < goldAmount; i++)
+        {
+            GameObject inst = Instantiate(gold,new Vector2(transform.position.x,transform.position.y+1f),Quaternion.identity);
+            inst.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0.3f,0.5f)));
+        }
         Invoke("DestroyEnemy",dieAfterSeconds);
     }
     public void Follow()
@@ -70,6 +76,7 @@ public class Enemy : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        
         Debug.Log("OLDUUUUU");
         Destroy(gameObject);
     }

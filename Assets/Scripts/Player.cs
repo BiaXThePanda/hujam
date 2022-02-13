@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float speed;
     public float movement = 0f;
-    public float health;
+    public int health;
     public float armor;
     public bool canMove = true;
     public LayerMask enemyLayer;
@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         wallSlidingLeft = wallSlidingCountdown;
         DJed = false;
         rb = GetComponent<Rigidbody2D>();
@@ -212,8 +213,7 @@ public class Player : MonoBehaviour
 
         //FLIP SPRITE
         
-        //CHECK HEALTH
-        CheckHealth();
+  
         isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, groundCheckRadius, wallLayer);
 
         if (canWallSlide)
@@ -403,7 +403,8 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage,bool stunned = false)
     {
-        health -= damage / armor;
+        health--;
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(-1);
         audSource.PlayOneShot(sfx[3]);
         if (stunned)
         {
@@ -419,6 +420,14 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Hit");
             StartCoroutine(SlowDownTime());
         }
+        if(health <= 0)
+        {
+            Debug.Log("öldün");
+        }
+    }
+    private void ChangeHealth()
+    {
+
     }
 
     IEnumerator SlowDownTime() {
@@ -459,6 +468,16 @@ public class Player : MonoBehaviour
             }
             
         }
+    }
+
+    public void IncreaseGold(int amount)
+    {
+        gold += amount;
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
+    }
+    public void DecreaseGold(int amount)
+    {
+        gold -= amount;
     }
 
     public void CombatTwoAttack()
