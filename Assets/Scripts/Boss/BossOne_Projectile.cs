@@ -9,6 +9,7 @@ public class BossOne_Projectile : MonoBehaviour
     public LayerMask playerLayer;
     public float tossAmount;
     public float damage;
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +24,10 @@ public class BossOne_Projectile : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            
+            Instantiate(explosion, transform.position, Quaternion.identity);
             if (Physics2D.OverlapCircle(transform.position, radius, playerLayer))
             {
+                
                 Debug.Log("PATLADI");
                 GameObject player = Physics2D.OverlapCircle(transform.position, radius, playerLayer).gameObject;
                 player.transform.GetComponent<Player>().GetDamage(damage, false);

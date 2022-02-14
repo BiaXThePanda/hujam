@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private bool stunnedPlayer;
     public int gold;
     public float maxYVelocity;
+    float damageCoolDownLeft;
+    public float damageCoolDown;
 
     //GroundCheck
     [Header("GroundCheck")]
@@ -123,8 +125,9 @@ public class Player : MonoBehaviour
             FlipSprite();
         }
 
-
-        Debug.Log(rb.velocity.y);
+        //DAMAGE COOLDOWN DECREASE
+        damageCoolDown -= Time.deltaTime;
+      
         //CHECK Y VELOCITY
        if(rb.velocity.y < -maxYVelocity)
         {
@@ -410,27 +413,32 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage,bool stunned = false)
     {
-        health--;
-        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(-1);
-        audSource.PlayOneShot(sfx[3]);
-        if (stunned)
+        if(damageCoolDownLeft<= 0)
         {
-            animator.SetTrigger("Stun");
-            stunnedPlayer = true;
-            StartCoroutine(DisableInputs(1f));
-            ShakeCamera(shakeAmount, 0.05f);
+            health--;
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(-1);
+            audSource.PlayOneShot(sfx[3]);
+            if (stunned)
+            {
+                animator.SetTrigger("Stun");
+                stunnedPlayer = true;
+                StartCoroutine(DisableInputs(1f));
+                ShakeCamera(shakeAmount, 0.05f);
 
+            }
+            else
+            {
+                ShakeCamera(shakeAmount, 0.05f);
+                animator.SetTrigger("Hit");
+                StartCoroutine(SlowDownTime());
+            }
+            if (health <= 0)
+            {
+                Debug.Log("öldün");
+            }
+            damageCoolDownLeft = damageCoolDown;
         }
-        else
-        {
-            ShakeCamera(shakeAmount, 0.05f);
-            animator.SetTrigger("Hit");
-            StartCoroutine(SlowDownTime());
-        }
-        if(health <= 0)
-        {
-            Debug.Log("öldün");
-        }
+       
     }
     public void IncreaseHealth()
     {
@@ -438,6 +446,8 @@ public class Player : MonoBehaviour
         {
             health += 2;
             GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+
         }
         else if(health == 3)
         {

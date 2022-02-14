@@ -9,11 +9,20 @@ public class Demirci : MonoBehaviour
     public bool canInteract;
     public GameObject canvasDemirci;
 
+    private AudioSource audSrc;
+    public AudioClip[] sfx;
+
+
+    private void Start()
+    {
+        audSrc = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            audSrc.PlayOneShot(sfx[0]);
             Debug.Log("pazar");
             Instantiate(canvasDemirci,transform.position,Quaternion.identity);
         }

@@ -35,6 +35,7 @@ public class Boss : MonoBehaviour
     public float getDamageCooldown;
     public AudioSource audSrc;
     public AudioClip[] sfx;
+    bool deathSoundPlayed;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +44,19 @@ public class Boss : MonoBehaviour
         isActive = false;
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        audSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Check Death Sound
+        if(health <= 0&& !deathSoundPlayed)
+        {
+            audSrc.PlayOneShot(sfx[1]);
+            deathSoundPlayed = true;
+        }
+
         animator.SetFloat("Health", health);
         distance = Vector2.Distance(player.transform.position,transform.position);
 
@@ -126,9 +135,9 @@ public class Boss : MonoBehaviour
         }
         float direction = transform.localScale.x / Mathf.Abs(transform.localScale.x);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.up*200,ForceMode2D.Force);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.right* 200*-direction, ForceMode2D.Force);
-        StartCoroutine(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().DisableInputs(1f));
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.up*300,ForceMode2D.Force);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.right* 300*-direction, ForceMode2D.Force);
+        StartCoroutine(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().DisableInputs(0.5f));
         
     }
 

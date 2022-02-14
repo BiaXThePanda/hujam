@@ -44,6 +44,7 @@ public class BossSecond : MonoBehaviour
 
     AudioSource audSrc;
     public AudioClip[] sfx;
+    public bool deadSoundPlayed;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,13 @@ public class BossSecond : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //DeathSound
+        if (health <= 0 && !deadSoundPlayed)
+        {
+            audSrc.PlayOneShot(sfx[1]);
+            deadSoundPlayed = true;
+        }
+
         bladeCoolDownleft -= Time.deltaTime;
         animator.SetFloat("Health", health);
         distance = Vector2.Distance(player.transform.position, transform.position);
@@ -107,6 +115,8 @@ public class BossSecond : MonoBehaviour
 
         //Decrease get damage cooldown
         getDamageCooldownLeft -= Time.deltaTime;
+
+        
     }
     public void TurnToPlayer()
     {
@@ -146,10 +156,10 @@ public class BossSecond : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(blade.position, bladeRange,playerLayer))
         {
-
+            audSrc.PlayOneShot(sfx[0]);
             if (bladeCoolDownleft < 0)
             {
-                audSrc.PlayOneShot(sfx[0]);
+                
                 GameObject player = Physics2D.OverlapCircle(blade.position, bladeRange, playerLayer).gameObject;
                 player.GetComponent<Player>().GetDamage(damage);
                 float direction = transform.localScale.x / Mathf.Abs(transform.localScale.x);

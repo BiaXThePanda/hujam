@@ -519,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &396883265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1973,14 +1973,15 @@ MonoBehaviour:
   m_MovementSmoothing: 0.003
   speed: 10
   movement: 0
-  health: 0
+  health: 4
   armor: 1
   canMove: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  gold: 0
+  gold: 50
   maxYVelocity: 30
+  damageCoolDown: 0
   grounded: 0
   groundLayer:
     serializedVersion: 2
@@ -2019,6 +2020,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3f33c63484af3c428571f9147caaec4, type: 3}
   - {fileID: 8300000, guid: 7f9fd88ed42b7a742ba6f43209011a45, type: 3}
   - {fileID: 8300000, guid: b297882dcbdd3854d847ed8d5401d136, type: 3}
+  - {fileID: 8300000, guid: 0624477e653323c41b59e8d47f973804, type: 3}
   slowAmount: 0.7
   slowDuration: 0.2
   popoRadius: 3
@@ -3025,7 +3027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1635196326
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CanvasShop : MonoBehaviour
 {
     public int healthPrice;
-    public Player player;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +24,7 @@ public class CanvasShop : MonoBehaviour
        if(healthPrice <= player.gold)
         {
             player.DecreaseGold(50);
+            player.IncreaseHealth();
         }
     }
 

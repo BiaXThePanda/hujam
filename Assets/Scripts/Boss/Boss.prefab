@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050486252328186302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29, y: -0.265, z: 0}
+  m_LocalPosition: {x: -0.357, y: -0.365, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8050486252529444263}
@@ -76,7 +76,7 @@ MonoBehaviour:
   tossAmount: 150
   isRushingInh: 0
   isFiringInh: 0
-  headRadius: 1
+  headRadius: 0.5
   player:
     serializedVersion: 2
     m_Bits: 256
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 8050486252529444280}
   - component: {fileID: 8050486252529444281}
   - component: {fileID: 8050486252529444262}
-  - component: {fileID: 8050486252529444261}
   - component: {fileID: 8050486252529444260}
   - component: {fileID: 1297653140878934079}
+  - component: {fileID: 7113260565830860871}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Enemy
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1644171119
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: daed2e46c46558345a14418260278833, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,34 +221,8 @@ MonoBehaviour:
   audSrc: {fileID: 0}
   sfx:
   - {fileID: 8300000, guid: c8a49f1658a77b84dae672207517884f, type: 3}
+  - {fileID: 8300000, guid: 974a8a0a4e5c26040a5997990b2d0c88, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
---- !u!61 &8050486252529444261
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8050486252529444282}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.043667942, y: -0.22599307}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4669488, y: 0.54801387}
-  m_EdgeRadius: 0
 --- !u!114 &8050486252529444260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,3 +331,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &7113260565830860871
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050486252529444282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016865902, y: -0.15179412}
+  serializedVersion: 2
+  m_Radius: 0.2976078
