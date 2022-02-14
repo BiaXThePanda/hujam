@@ -54,6 +54,7 @@ public class Boss : MonoBehaviour
     {
         //Check Death Sound
         if(health <= 0&& !deathSoundPlayed)
+
         {
             Music.Stop();
             audSrc.PlayOneShot(sfx[1]);

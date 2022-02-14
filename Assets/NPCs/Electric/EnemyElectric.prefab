@@ -103,7 +103,7 @@ MonoBehaviour:
   movementSmoothing: 0
   armor: 1
   range: 2
-  innerRange: 3
+  innerRange: 2
   canFollow: 0
   isDead: 0
   dieAfterSeconds: 0.7

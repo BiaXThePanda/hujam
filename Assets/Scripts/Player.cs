@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -330,6 +330,7 @@ public class Player : MonoBehaviour
             {
                 audSource.PlayOneShot(sfx[0],1f);
                 ShakeCamera(shakeAmount,0.05f);
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 doubleJump = 2;
                 GroundSmash();
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
@@ -341,6 +342,8 @@ public class Player : MonoBehaviour
             {
                 audSource.PlayOneShot(sfx[2]);
                 doubleJump = 2;
+               
+
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
                 {
                     animator.SetTrigger("EndDouble");
@@ -401,7 +404,13 @@ public class Player : MonoBehaviour
     {
         if(health <= 0)
         {
-            Debug.LogError("GAME OVER");
+
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+            health = 4;
+            SceneManager.LoadScene("Level1");
 
         }
     }
@@ -432,10 +441,7 @@ public class Player : MonoBehaviour
                 animator.SetTrigger("Hit");
                 StartCoroutine(SlowDownTime());
             }
-            if (health <= 0)
-            {
-                Debug.Log("öldün");
-            }
+            CheckHealth();
             damageCoolDownLeft = damageCoolDown;
         }
        

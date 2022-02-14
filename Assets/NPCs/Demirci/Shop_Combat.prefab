@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3814741375974700284}
   m_Layer: 0
   m_Name: Shop_Combat
-  m_TagString: Untagged
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,22 +6,33 @@ public class ToShop : MonoBehaviour
 {
     public Transform destination;
 
+    private void Start()
+    {
+        
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.position = destination.position;
-            GameObject[] shops = GameObject.FindGameObjectsWithTag("Player");
+            GameObject[] shops = GameObject.FindGameObjectsWithTag("Shop");
+            Debug.Log(shops.Length);
             foreach (GameObject shop in shops)
             {
+                Debug.LogError(shop.name);
                 if (shop.GetComponent<Shop_Head>()!=null)
                 {
                     shop.GetComponent<Shop_Head>().UpdateShop();
-                }else if (shop.GetComponent<Shop_Back>() != null)
+
+                }
+                if (shop.GetComponent<Shop_Back>() != null)
                 {
                     shop.GetComponent<Shop_Back>().UpdateShop();
                 }
-                else if (shop.GetComponent<Shop_Combat>() != null)
+
+                if (shop.GetComponent<Shop_Combat>() != null)
                 {
                     shop.GetComponent<Shop_Combat>().UpdateShop();
                 }

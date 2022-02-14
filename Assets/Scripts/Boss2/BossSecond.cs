@@ -67,6 +67,7 @@ public class BossSecond : MonoBehaviour
         //DeathSound
         if (health <= 0 && !deadSoundPlayed)
         {
+            Music.Stop();
             audSrc.PlayOneShot(sfx[1]);
             deadSoundPlayed = true;
             Invoke("DestroyPlatform", 2f);
@@ -81,14 +82,19 @@ public class BossSecond : MonoBehaviour
 
         if (distance <= activateRange && animator.GetCurrentAnimatorStateInfo(0).IsName("Dead") == false)
         {
-            isActive = true;
+            
+            if (health > 0 && !isActive)
+            {
+                isActive = true;
+                Music.Play();
+
+            }
         }
-        if(!isActive && health > 0)
+        
+        if(distance <= activateRange)
         {
-            Music.Play();
 
         }
-
 
 
         if (isActive)

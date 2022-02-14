@@ -26,10 +26,10 @@ public class Shop_Health : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
 
-                if (50 <= player.gold)
+                if (30 <= player.gold)
                 {
                     audSrc.PlayOneShot(sfx);
-                    player.DecreaseGold(50);
+                    player.DecreaseGold(30);
                     player.IncreaseHealth();
                 }
 
