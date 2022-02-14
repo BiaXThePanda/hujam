@@ -126,7 +126,7 @@ MonoBehaviour:
   target: {fileID: 0}
   gold: {fileID: 8788374696472582908, guid: 1ad9df8260a086942a4169fc6518cf55, type: 3}
   animator: {fileID: 0}
-  prepareDuration: 3
+  prepareDuration: 1
   stunPlayerDuration: 2
   damageRadius: 0
 --- !u!95 &2950083605871906722

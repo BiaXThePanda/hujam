@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         }
 
         //DAMAGE COOLDOWN DECREASE
-        damageCoolDown -= Time.deltaTime;
+        damageCoolDownLeft -= Time.deltaTime;
       
         //CHECK Y VELOCITY
        if(rb.velocity.y < -maxYVelocity)

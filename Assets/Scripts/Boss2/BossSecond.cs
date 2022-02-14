@@ -83,6 +83,13 @@ public class BossSecond : MonoBehaviour
         {
             isActive = true;
         }
+        if(!isActive && health > 0)
+        {
+            Music.Play();
+
+        }
+
+
 
         if (isActive)
         {
@@ -111,10 +118,7 @@ public class BossSecond : MonoBehaviour
                 isRushing = true;
                 isFiring = false;
             }
-            if(health > 0)
-            {
-                Music.Play();
-            }
+            
 
             animator.SetBool("Rushing", isRushing);
             animator.SetBool("Firing", isFiring);

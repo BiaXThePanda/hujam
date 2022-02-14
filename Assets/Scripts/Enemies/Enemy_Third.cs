@@ -65,7 +65,7 @@ public class Enemy_Third : Enemy
         yield return new WaitForSeconds(prepareDuration);
         animator.SetTrigger("Boom");
         player.GetComponent<Player>().GetDamage(damage, true);
-        player.GetComponent<Rigidbody2D>().AddForce((player.transform.position-transform.position)*1000);
+        player.GetComponent<Rigidbody2D>().AddForce((player.transform.position-transform.position)*300);
         if(player.transform.position.x-transform.position.x < 0 && player.transform.localScale.x != player.GetComponent<Player>().startLocalScaleX)
         {
             Debug.Log("1");
