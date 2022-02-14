@@ -11,6 +11,8 @@ public class Shop_Health : MonoBehaviour
     public AudioClip sfx;
 
     Player player;
+    public GameObject E;
+
     private void Start()
     {
         audSrc = GetComponent<AudioSource>();
@@ -42,6 +44,8 @@ public class Shop_Health : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = true;
+            E.SetActive(true);
+
         }
 
     }
@@ -50,6 +54,8 @@ public class Shop_Health : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = false;
+            E.SetActive(false);
+
         }
     }
 }

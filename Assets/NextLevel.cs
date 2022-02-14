@@ -7,6 +7,7 @@ public class NextLevel : MonoBehaviour
 {
 
     public GameObject flEv, slEv, tlEv;
+    public GameObject canvasEnding;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -39,7 +40,7 @@ public class NextLevel : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name == "Level3")
             {
-               
+                Instantiate(canvasEnding, transform.position, Quaternion.identity);
             }
         }
     }

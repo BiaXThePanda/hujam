@@ -13,6 +13,7 @@ public class Shop_Back : MonoBehaviour
     private AudioSource audSrc;
     public AudioClip sfx;
     public Color color;
+    public GameObject E;
     private void Start()
     {
         audSrc = GetComponent<AudioSource>();
@@ -65,6 +66,7 @@ public class Shop_Back : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = true;
+            E.SetActive(true);
         }
 
     }
@@ -73,6 +75,8 @@ public class Shop_Back : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = false;
+            E.SetActive(false);
+
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8788374696472582909}
   - component: {fileID: 8788374696472582904}
   - component: {fileID: 544162576043741159}
+  - component: {fileID: 4422876499110554781}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 547712541
   m_SortingLayer: 4
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 669e1f873cd56e247acacd61a7d04c30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 911f93fa718c87b4d95aa0d0197612fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,3 +138,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4422876499110554781
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8788374696472582908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06e36c913eb844f4392b562a43b9d98c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

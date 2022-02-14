@@ -11,6 +11,7 @@ public class Shop_Head : MonoBehaviour
     public bool canInteract;
     private AudioSource audSrc;
     public AudioClip sfx;
+    public GameObject E;
 
     private void Start()
     {
@@ -62,6 +63,8 @@ public class Shop_Head : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = true;
+            E.SetActive(true);
+
         }
 
     }
@@ -70,6 +73,8 @@ public class Shop_Head : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = false;
+            E.SetActive(false);
+
         }
     }
 

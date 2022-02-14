@@ -11,7 +11,7 @@ public class Shop_Combat : MonoBehaviour
     public bool canInteract;
     private AudioSource audSrc;
     public AudioClip sfx;
-
+    public GameObject E;
     private void Start()
     {
         audSrc = GetComponent<AudioSource>();
@@ -64,6 +64,8 @@ public class Shop_Combat : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = true;
+            E.SetActive(true);
+
         }
 
     }
@@ -72,6 +74,8 @@ public class Shop_Combat : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canInteract = false;
+            E.SetActive(false);
+
         }
     }
 
