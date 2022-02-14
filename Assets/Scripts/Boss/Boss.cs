@@ -35,6 +35,7 @@ public class Boss : MonoBehaviour
     public float getDamageCooldown;
     public AudioSource audSrc;
     public AudioClip[] sfx;
+    public AudioSource Music;
     bool deathSoundPlayed;
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class Boss : MonoBehaviour
         //Check Death Sound
         if(health <= 0&& !deathSoundPlayed)
         {
+            Music.Stop();
             audSrc.PlayOneShot(sfx[1]);
             deathSoundPlayed = true;
         }
@@ -62,8 +64,14 @@ public class Boss : MonoBehaviour
 
         if(distance<= activateRange && animator.GetCurrentAnimatorStateInfo(0).IsName("Dead") == false)
         {
-            isActive = true;
-            animator.SetTrigger("Start");
+            if (!isActive && health > 0)
+            {
+                isActive = true;
+                Debug.Log("caliyor");
+                Music.Play();
+                animator.SetTrigger("Start");
+            }
+            
         }
         
         if (isActive)

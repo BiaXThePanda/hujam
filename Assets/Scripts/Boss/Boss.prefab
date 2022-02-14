@@ -208,7 +208,7 @@ MonoBehaviour:
   isRushing: 0
   isFiring: 0
   isFlipped: 0
-  activateRange: 10
+  activateRange: 12
   isActive: 0
   startLocalScaleX: {x: 0, y: 0}
   shootingCooldown: 2

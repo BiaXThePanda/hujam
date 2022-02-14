@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4817120060095556489}
   - component: {fileID: 4817120060095556490}
-  - component: {fileID: 4817120060095556491}
   - component: {fileID: 4817120060095556488}
-  - component: {fileID: 4817120060095556503}
   - component: {fileID: 7908639322557344096}
   m_Layer: 0
   m_Name: Demirci
@@ -86,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4817120060095556491
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817120060095556492}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.4603521
 --- !u!95 &4817120060095556488
 Animator:
   serializedVersion: 3
@@ -121,22 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4817120060095556503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817120060095556492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab8916297530f8943a35766303d9b5c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteract: 0
-  canvasDemirci: {fileID: 1423074887354266210, guid: 7a7e0db43accd6e4a8d12c24aae6aad5, type: 3}
-  sfx:
-  - {fileID: 8300000, guid: 80ca07420d842484d88d409d3239b1ad, type: 3}
 --- !u!82 &7908639322557344096
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - HUD
+  - EvolveShop
   layers:
   - Default
   - TransparentFX
