@@ -31,11 +31,6 @@ public class CanvasShop : MonoBehaviour
 
 
 
-    public void CloseCanvas()
-    {
-        Debug.Log("kapatildi");
-        Destroy(gameObject);
-    }
 
 
 

@@ -1979,7 +1979,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
-  gold: 50
+  gold: 60
   maxYVelocity: 30
   damageCoolDown: 0
   grounded: 0
