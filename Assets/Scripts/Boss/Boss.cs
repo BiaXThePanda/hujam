@@ -37,6 +37,7 @@ public class Boss : MonoBehaviour
     public AudioClip[] sfx;
     public AudioSource Music;
     bool deathSoundPlayed;
+    public GameObject platform;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class Boss : MonoBehaviour
             Music.Stop();
             audSrc.PlayOneShot(sfx[1]);
             deathSoundPlayed = true;
+            Invoke("DestroyPlatform", 2f);
         }
 
         animator.SetFloat("Health", health);
@@ -147,6 +149,11 @@ public class Boss : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.right* 300*-direction, ForceMode2D.Force);
         StartCoroutine(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().DisableInputs(0.5f));
         
+    }
+    void DestroyPlatform()
+    {
+        Destroy(platform);
+        Destroy(gameObject);
     }
 
 }

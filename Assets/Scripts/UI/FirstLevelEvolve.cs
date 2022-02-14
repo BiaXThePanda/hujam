@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstLevelEvolve : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class FirstLevelEvolve : MonoBehaviour
     void Start()
     {
         GameObject inst = Instantiate(button_H[(int)Random.Range(0,3)],center.position,Quaternion.identity);
-        inst.transform.parent = gameObject.transform;
+        inst.transform.SetParent(gameObject.transform);
         inst = Instantiate(button_B[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-        inst.transform.parent = gameObject.transform;
+        inst.transform.SetParent(gameObject.transform);
         inst = Instantiate(button_C[(int)Random.Range(0, 3)], right.position, Quaternion.identity);
-        inst.transform.parent = gameObject.transform;
+        inst.transform.SetParent(gameObject.transform);
 
     }
 
