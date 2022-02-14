@@ -171,7 +171,10 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: d10ce859840a7524baebcdce347a1c20, type: 3}
   - {fileID: 8300000, guid: 2acd4235a25cd22489157d79027db6aa, type: 3}
+  - {fileID: 8300000, guid: d9ec30c5001426745b352edd8cdcdaf4, type: 3}
   deadSoundPlayed: 0
+  Music: {fileID: 0}
+  platform: {fileID: 0}
 --- !u!114 &7622368590229019172
 MonoBehaviour:
   m_ObjectHideFlags: 0

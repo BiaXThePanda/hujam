@@ -222,7 +222,9 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: c8a49f1658a77b84dae672207517884f, type: 3}
   - {fileID: 8300000, guid: 974a8a0a4e5c26040a5997990b2d0c88, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bffe4b08fc879fa45926af7625c28051, type: 3}
+  Music: {fileID: 0}
+  platform: {fileID: 0}
 --- !u!114 &8050486252529444260
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -139,7 +139,7 @@ public class Boss : MonoBehaviour
         {
             health -= amount;
             animator.SetTrigger("Hit");
-            
+            audSrc.PlayOneShot(sfx[2]);
             
             getDamageCooldownLeft = getDamageCooldown;
 
