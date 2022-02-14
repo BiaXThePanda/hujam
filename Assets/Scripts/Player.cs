@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public LayerMask enemyLayer;
     private bool stunnedPlayer;
     public int gold;
+    public float maxYVelocity;
 
     //GroundCheck
     [Header("GroundCheck")]
@@ -121,9 +122,15 @@ public class Player : MonoBehaviour
         {
             FlipSprite();
         }
-       
-        
-       
+
+
+        Debug.Log(rb.velocity.y);
+        //CHECK Y VELOCITY
+       if(rb.velocity.y < -maxYVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y,-maxYVelocity,float.MaxValue));
+        }
+
         animator.SetFloat("speed", Mathf.Abs(movement));
         animator.SetFloat("verticalSpeed", rb.velocity.y);
         
@@ -425,6 +432,19 @@ public class Player : MonoBehaviour
             Debug.Log("öldün");
         }
     }
+    public void IncreaseHealth()
+    {
+        if (health <= 2)
+        {
+            health += 2;
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+        }
+        else if(health == 3)
+        {
+            health++;
+            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(1);
+        }
+    }
     private void ChangeHealth()
     {
 
@@ -472,12 +492,14 @@ public class Player : MonoBehaviour
 
     public void IncreaseGold(int amount)
     {
+        audSource.PlayOneShot(sfx[7]);
         gold += amount;
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
     }
     public void DecreaseGold(int amount)
     {
         gold -= amount;
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
     }
 
     public void CombatTwoAttack()

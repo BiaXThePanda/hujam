@@ -42,6 +42,9 @@ public class BossSecond : MonoBehaviour
     public float getDamageCooldownLeft;
     public float getDamageCooldown;
 
+    AudioSource audSrc;
+    public AudioClip[] sfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class BossSecond : MonoBehaviour
         isActive = false;
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        audSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -145,6 +149,7 @@ public class BossSecond : MonoBehaviour
 
             if (bladeCoolDownleft < 0)
             {
+                audSrc.PlayOneShot(sfx[0]);
                 GameObject player = Physics2D.OverlapCircle(blade.position, bladeRange, playerLayer).gameObject;
                 player.GetComponent<Player>().GetDamage(damage);
                 float direction = transform.localScale.x / Mathf.Abs(transform.localScale.x);

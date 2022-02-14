@@ -167,7 +167,7 @@ Transform:
   - {fileID: 547424574}
   - {fileID: 1571892728}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494614098
 GameObject:
@@ -3391,7 +3391,7 @@ GameObject:
   - component: {fileID: 547424576}
   - component: {fileID: 547424575}
   - component: {fileID: 547424577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap_Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23774,7 +23774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1464190274
 MonoBehaviour:
