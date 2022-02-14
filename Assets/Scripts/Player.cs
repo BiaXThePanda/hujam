@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     public bool canMagnetGolds;
     public bool dontGetHitByProjectiles;
     public bool canWallSlide;
-
+    public int evolveGot;
     // Start is called before the first frame update
     void Start()
     {

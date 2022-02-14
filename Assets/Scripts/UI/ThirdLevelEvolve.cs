@@ -18,18 +18,18 @@ public class ThirdLevelEvolve : MonoBehaviour
         {
             case "Head":
                 GameObject inst = Instantiate(button_H[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-                inst.transform.parent = gameObject.transform;
+                inst.transform.SetParent(gameObject.transform);
 
                 break;
             case "Back":
                 GameObject insta = Instantiate(button_B[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-                insta.transform.parent = gameObject.transform;
+                insta.transform.SetParent(gameObject.transform);
 
 
                 break;
             case "Combat":
                 GameObject instb = Instantiate(button_C[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-                instb.transform.parent = gameObject.transform;
+                instb.transform.SetParent(gameObject.transform);
 
                 break;
 
@@ -52,11 +52,12 @@ public class ThirdLevelEvolve : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
-                if (!GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).GetChild(j).gameObject.activeSelf)
+                if (GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).GetChild(j).gameObject.activeSelf == false)
                 {
 
-
                     name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
+                    Debug.Log(name);
+
                     break;
                 }
 

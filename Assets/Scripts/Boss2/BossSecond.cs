@@ -45,6 +45,9 @@ public class BossSecond : MonoBehaviour
     AudioSource audSrc;
     public AudioClip[] sfx;
     public bool deadSoundPlayed;
+    public AudioSource Music;
+
+    public GameObject platform;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,7 @@ public class BossSecond : MonoBehaviour
         {
             audSrc.PlayOneShot(sfx[1]);
             deadSoundPlayed = true;
+            Invoke("DestroyPlatform", 2f);
         }
 
         bladeCoolDownleft -= Time.deltaTime;
@@ -107,7 +111,10 @@ public class BossSecond : MonoBehaviour
                 isRushing = true;
                 isFiring = false;
             }
-
+            if(health > 0)
+            {
+                Music.Play();
+            }
 
             animator.SetBool("Rushing", isRushing);
             animator.SetBool("Firing", isFiring);
@@ -192,6 +199,11 @@ public class BossSecond : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().AddForce(Vector2.right * 200 * -direction, ForceMode2D.Force);
         StartCoroutine(GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().DisableInputs(0.5f));
 
+    }
+    void DestroyPlatform()
+    {
+        Destroy(platform);
+        Destroy(gameObject);
     }
 
     IEnumerator CanShootActivate(float amount)

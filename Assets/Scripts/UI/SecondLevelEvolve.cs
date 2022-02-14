@@ -17,21 +17,21 @@ public class SecondLevelEvolve : MonoBehaviour
         {
             case "Head":
                 GameObject inst = Instantiate(button_B[(int)Random.Range(0, 3)], left.position,Quaternion.identity);
-                inst.transform.parent = transform.parent;
+                inst.transform.SetParent(gameObject.transform); 
                 inst = Instantiate(button_C[(int)Random.Range(0, 3)], right.position, Quaternion.identity);
-                inst.transform.parent = transform.parent;
+                inst.transform.SetParent(gameObject.transform);
                 break;
             case "Back":
                 GameObject insta = Instantiate(button_H[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-                insta.transform.parent = transform.parent;
+                insta.transform.SetParent(gameObject.transform);
                 insta = Instantiate(button_C[(int)Random.Range(0, 3)], right.position, Quaternion.identity);
-                insta.transform.parent = transform.parent;
+                insta.transform.SetParent(gameObject.transform);
                 break;
             case "Combat":
                 GameObject instb =  Instantiate(button_B[(int)Random.Range(0, 3)], left.position, Quaternion.identity);
-                instb.transform.parent = transform.parent;
+                instb.transform.SetParent(gameObject.transform);
                 instb = Instantiate(button_H[(int)Random.Range(0, 3)], right.position, Quaternion.identity);
-                instb.transform.parent = transform.parent;
+                instb.transform.SetParent(gameObject.transform);
                 break;
 
 
@@ -51,6 +51,7 @@ public class SecondLevelEvolve : MonoBehaviour
 
 
                     name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
+                    Debug.Log("SADQAWED");
                     break;
             }
                 

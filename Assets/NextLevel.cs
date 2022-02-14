@@ -14,13 +14,32 @@ public class NextLevel : MonoBehaviour
         {
             if( SceneManager.GetActiveScene().name == "Introduction")
             {
-                Instantiate(flEv, transform.position, Quaternion.identity);
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot < 3)
+                {
+                    Instantiate(flEv, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
+                }
+                
             }else if (SceneManager.GetActiveScene().name == "Level1")
             {
-                Instantiate(slEv, transform.position, Quaternion.identity);
-            }else if (SceneManager.GetActiveScene().name == "Level2")
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot < 3)
+                {
+                    Instantiate(slEv, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
+                }
+
+            }
+            else if (SceneManager.GetActiveScene().name == "Level2")
             {
-                Instantiate(tlEv, transform.position, Quaternion.identity);
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot < 3)
+                {
+                    Instantiate(tlEv, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
+                }
+            }
+            else if (SceneManager.GetActiveScene().name == "Level3")
+            {
+               
             }
         }
     }
