@@ -49,9 +49,8 @@ public class SecondLevelEvolve : MonoBehaviour
             for(int j = 0; j<3;j++)
             if (GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).GetChild(j).gameObject.activeSelf) {
 
-
                     name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
-                    Debug.Log("SADQAWED");
+                    Debug.LogError(name);
                     break;
             }
                 

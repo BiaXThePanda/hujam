@@ -81,20 +81,20 @@ public class Shop_Combat : MonoBehaviour
 
     public void UpdateShop()
     {
-        if (player.transform.GetChild(1).transform.GetChild(0).gameObject.activeSelf)
+        if (player.transform.GetChild(2).transform.GetChild(0).gameObject.activeSelf)
         {
             spriteRenderer.sprite = sprites[0];
             canBuy = true;
         }
-        else if (player.transform.GetChild(1).transform.GetChild(1).gameObject.activeSelf)
+        else if (player.transform.GetChild(2).transform.GetChild(1).gameObject.activeSelf)
         {
-            spriteRenderer.sprite = sprites[0];
+            spriteRenderer.sprite = sprites[1];
             canBuy = true;
 
         }
-        else if (player.transform.GetChild(1).transform.GetChild(2).gameObject.activeSelf)
+        else if (player.transform.GetChild(2).transform.GetChild(2).gameObject.activeSelf)
         {
-            spriteRenderer.sprite = sprites[0];
+            spriteRenderer.sprite = sprites[2];
             canBuy = true;
 
         }

@@ -7,10 +7,10 @@ public class Evolve : MonoBehaviour
 {
 
     CheckEvolves checkEvolves;
+    Animator animator;
 
 
-
-
+    
     private void Start()
     {
         checkEvolves = GameObject.FindGameObjectWithTag("Player").GetComponent<CheckEvolves>();

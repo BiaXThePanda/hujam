@@ -405,14 +405,33 @@ public class Player : MonoBehaviour
         if(health <= 0)
         {
 
-            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
-            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
-            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
-            GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
-            health = 4;
-            SceneManager.LoadScene("Level1");
+            
 
         }
+    }
+
+    private void Die()
+    {
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
+        health = 4;
+        SceneManager.LoadScene("Level1");
+        gold = 0;
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
+        evolveGot = 0;
+        for(int i = 0; i < 3; i++)
+        {
+            for (int j = 0;j < 3; j++)
+            {
+                if (transform.GetChild(i).transform.GetChild(j).gameObject.activeSelf)
+                {
+                    transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(false);
+                }
+            }
+        }
+
     }
 
     private void SetWalljumpingFalse()

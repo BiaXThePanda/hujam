@@ -20,6 +20,10 @@ public class NextLevel : MonoBehaviour
                     Instantiate(flEv, transform.position, Quaternion.identity);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
                 }
+                else
+                {
+                    SceneManager.LoadScene("Level1");
+                }
                 
             }else if (SceneManager.GetActiveScene().name == "Level1")
             {
@@ -27,6 +31,10 @@ public class NextLevel : MonoBehaviour
                 {
                     Instantiate(slEv, transform.position, Quaternion.identity);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
+                }
+                else
+                {
+                    SceneManager.LoadScene("Level2");
                 }
 
             }
@@ -36,6 +44,10 @@ public class NextLevel : MonoBehaviour
                 {
                     Instantiate(tlEv, transform.position, Quaternion.identity);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().evolveGot++;
+                }
+                else
+                {
+                    SceneManager.LoadScene("Level3");
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Level3")

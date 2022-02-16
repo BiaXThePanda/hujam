@@ -51,17 +51,26 @@ public class ThirdLevelEvolve : MonoBehaviour
         string name = "";
         for (int i = 0; i < 3; i++)
         {
+            int notActive = 0;
             for (int j = 0; j < 3; j++)
+            {
                 if (GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).GetChild(j).gameObject.activeSelf == false)
                 {
-
-                    name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
+                    notActive++;
+                    //name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
                     Debug.Log(name);
-
-                    break;
+                   
                 }
+                
+            }
+            if(notActive == 3)
+            {
+                name = GameObject.FindGameObjectWithTag("Player").transform.GetChild(i).name;
+                break;
+            }
 
         }
+        Debug.Log("diskalifiye" + name);
         return name;
 
     }

@@ -84,17 +84,21 @@ public class Shop_Back : MonoBehaviour
     {
         if (player.transform.GetChild(1).transform.GetChild(0).gameObject.activeSelf)
         {
+
             spriteRenderer.sprite = sprites[0];
             canBuy = true;
         }else if (player.transform.GetChild(1).transform.GetChild(1).gameObject.activeSelf)
         {
-            spriteRenderer.sprite = sprites[0];
+
+            spriteRenderer.sprite = sprites[1];
             canBuy = true;
 
         }
         else if (player.transform.GetChild(1).transform.GetChild(2).gameObject.activeSelf)
         {
-            spriteRenderer.sprite = sprites[0];
+
+
+            spriteRenderer.sprite = sprites[2];
             canBuy = true;
 
         }
