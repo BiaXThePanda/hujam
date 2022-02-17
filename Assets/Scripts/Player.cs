@@ -417,7 +417,8 @@ public class Player : MonoBehaviour
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
         health = 4;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Introduction");
+        GameObject.Find("Canvas_Intro").SetActive(false);
         gold = 0;
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
         evolveGot = 0;
