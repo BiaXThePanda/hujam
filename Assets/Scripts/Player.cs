@@ -87,6 +87,8 @@ public class Player : MonoBehaviour
     public bool dontGetHitByProjectiles;
     public bool canWallSlide;
     public int evolveGot;
+
+    public GameObject flEv;
     // Start is called before the first frame update
     void Start()
     {
@@ -418,9 +420,10 @@ public class Player : MonoBehaviour
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HealthBar>().ChangeHealth(2);
         health = 4;
         SceneManager.LoadScene("Introduction");
-        GameObject.Find("Canvas_Intro").SetActive(false);
+        evolveGot++;
         gold = 0;
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
+        
         evolveGot = 0;
         for(int i = 0; i < 3; i++)
         {
@@ -432,6 +435,14 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        Invoke("createFirstEvolve", 0.2f);
+        
+    }
+
+    private void createFirstEvolve()
+    {
+        Instantiate(flEv, transform.position, Quaternion.identity);
+        GameObject.Find("Canvas_Intro").SetActive(false);
 
     }
 
