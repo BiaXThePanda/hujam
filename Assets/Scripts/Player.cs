@@ -425,6 +425,10 @@ public class Player : MonoBehaviour
         GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDGold>().ChangeGoldTo(gold);
         
         evolveGot = 0;
+        doubleJumpAvailable = false;
+        canMagnetGolds = false;
+        dontGetHitByProjectiles = false;
+        canWallSlide = false;
         for(int i = 0; i < 3; i++)
         {
             for (int j = 0;j < 3; j++)

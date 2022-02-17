@@ -10,7 +10,7 @@ public class ToShop : MonoBehaviour
 
     private void Start()
     {
-        
+        cm = GameObject.Find("CMvcam1").GetComponent<CinemachineFramingTransposer>();
     }
 
 
@@ -18,6 +18,7 @@ public class ToShop : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+
             collision.gameObject.transform.position = destination.position;
             if(destination.transform.position.y > transform.position.y)
             {
